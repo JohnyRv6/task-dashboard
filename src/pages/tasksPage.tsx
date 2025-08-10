@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { FilterBar } from "../components/filterBar";
-import { useTasks } from "../hooks/useTasks";
 import { TaskList } from "../components/taskList";
+import { useTaskContext } from "../context/taskContext";
 
 export default function TasksPage() {
-  const { tasks } = useTasks();
+  const { tasks } = useTaskContext();
   const [statusFilter, setStatusFilter] = useState("");
   const [priorityFilter, setPriorityFilter] = useState("");
   const [sortBy, setSortBy] = useState("");

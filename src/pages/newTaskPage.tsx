@@ -1,9 +1,9 @@
 import TaskForm, { type TaskFormValues } from "../components/taskForm";
-import { useTasks } from "../hooks/useTasks";
+import { useTaskContext } from "../context/taskContext";
 import { useNavigate } from "react-router-dom";
 
 export default function NewTaskPage() {
-  const { addTask } = useTasks();
+  const { addTask } = useTaskContext();
   const navigate = useNavigate();
 
   const handleSubmit = (values: TaskFormValues) => {
