@@ -1,11 +1,26 @@
-import "./App.css";
+import { Outlet, NavLink } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <h1 className="text-2xl font-bold">Task Dashboard</h1>
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow">
+        <nav className="container mx-auto flex gap-4 p-4">
+          <NavLink
+            to="/tasks"
+            className={({ isActive }) =>
+              `px-3 py-1 rounded ${isActive ? "bg-blue-500 text-white" : "hover:bg-gray-200"}`
+            }
+          >
+            Tasks
+          </NavLink>
+        </nav>
+      </header>
+
+      {/* Main Content */}
+      <main className="container mx-auto flex-1 p-4">
+        <Outlet />
+      </main>
     </div>
   );
 }
-
-export default App;
