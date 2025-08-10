@@ -1,21 +1,11 @@
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Task, TaskStatus, TaskPriority } from "../types/task";
-
-const schema = z.object({
-  title: z.string().min(1, "Title is required"),
-  description: z.string().optional(),
-  status: z.enum(["To Do", "In Progress", "Done"]),
-  priority: z.enum(["Low", "Medium", "High"]),
-  dueDate: z.string().optional(),
-});
-
-export type TaskFormValues = z.infer<typeof schema>;
+import { taskSchema, type TaskFormData } from "../schemas/taskSchema";
 
 interface TaskFormProps {
   defaultValues?: Partial<Task>;
-  onSubmit: (values: TaskFormValues) => void;
+  onSubmit: (values: TaskFormData) => void;
 }
 
 export default function TaskForm({ defaultValues, onSubmit }: TaskFormProps) {
@@ -23,8 +13,8 @@ export default function TaskForm({ defaultValues, onSubmit }: TaskFormProps) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TaskFormValues>({
-    resolver: zodResolver(schema),
+  } = useForm<TaskFormData>({
+    resolver: zodResolver(taskSchema),
     defaultValues: {
       title: defaultValues?.title || "",
       description: defaultValues?.description || "",
