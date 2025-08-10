@@ -13,6 +13,14 @@ export default function App() {
           >
             Tasks
           </NavLink>
+          <NavLink
+            to="/tasks/new"
+            className={({ isActive }) =>
+              `px-3 py-1 rounded ${isActive ? "bg-blue-500 text-white" : "hover:bg-gray-200"}`
+            }
+          >
+            Add task
+          </NavLink>
         </nav>
       </header>
 
