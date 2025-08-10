@@ -3,7 +3,6 @@ import { Outlet, NavLink } from "react-router-dom";
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* Header */}
       <header className="bg-white shadow">
         <nav className="container mx-auto flex gap-4 p-4">
           <NavLink
@@ -17,7 +16,6 @@ export default function App() {
         </nav>
       </header>
 
-      {/* Main Content */}
       <main className="container mx-auto flex-1 p-4">
         <Outlet />
       </main>
