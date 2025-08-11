@@ -33,6 +33,7 @@ export default function TaskForm({ defaultValues, onSubmit }: TaskFormProps) {
         <label className="block text-sm font-medium">Title</label>
         <input
           {...register("title")}
+          placeholder="title"
           className="w-full border rounded px-2 py-1"
         />
         {errors.title && (

@@ -56,6 +56,9 @@ pnpm install
 # Start development server
 pnpm dev
 
+# Run tests
+pnpm test
+
 # Build for production
 pnpm build
 
